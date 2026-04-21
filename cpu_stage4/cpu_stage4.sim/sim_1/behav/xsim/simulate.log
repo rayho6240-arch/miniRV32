@@ -1,6 +1,18 @@
 Time resolution is 1 ps
-Time:               22000 | PC:0 | SW  - Data:  5 to Addr:  8
-Time:               32000 | PC:1 | ADD - R1 =   0
-Time:               42000 | PC:2 | LW  - R4 loaded with   0
-Time:               52000 | PC:3 | SUB - Result:   0, Zero: 1
-$finish called at time : 102 ns : File "D:/Programing/VerilogProject/miniRV32/cpu_stage3/cpu_stage3.srcs/sim_1/new/top_tb.v" Line 58
+Time:25000 | PC: 1 | Instr:0010011000000011
+         | ALU_Out:  3 | Final_WD:  3
+---------------------------------------------------------
+=========================================================
+  Start Simulation
+=========================================================
+Time:30000 | PC: 2 | Instr:0001001010000011
+         | ALU_Out:  4 | Final_WD:  4
+---------------------------------------------------------
+Time:40000 | PC: 3 | Instr:0000000000000000
+         | ALU_Out:  0 | Final_WD:  0
+---------------------------------------------------------
+Time:50000 | PC: 4 | Instr:0000000000000000
+         | ALU_Out:  0 | Final_WD:  0
+---------------------------------------------------------
+Done Simulation
+$finish called at time : 70 ns : File "D:/Programing/VerilogProject/miniRV32/cpu_stage4/cpu_stage4.srcs/sim_1/new/top_tb.v" Line 55

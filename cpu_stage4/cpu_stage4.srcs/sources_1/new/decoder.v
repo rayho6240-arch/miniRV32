@@ -1,53 +1,66 @@
-`timescale 1ns / 1ps
-
 module decoder(
-    input [10:0] instr,
-    output [1:0] op,
-    output [2:0] rs1,
-    output [2:0] rs2,
-    output [2:0] rd,
-    // 在 always 區塊中賦值的輸出必須宣告為 reg
-    output reg RegWrite, 
-    output reg MemtoReg, 
-    output reg MemWrite, 
-    output reg MemRead    
-    );
+    input  [15:0] instr,      // 【升級】指令寬度從 11-bit 變成 16-bit
     
-    // 基本欄位拆解
-    assign op  = instr[10:9];
-    assign rd  = instr[8:6];
-    assign rs1 = instr[5:3];
-    assign rs2 = instr[2:0];
+    output [3:0]  op,         // 【升級】Opcode 變成 4-bit，可以容納 16 種指令
+    output [2:0]  rs1,
+    output [2:0]  rs2,
+    output [2:0]  rd,
+    output [5:0]  imm,        // 【新增】從指令中切下來的 6-bit 立即數 (數字)
     
-    // 控制訊號邏輯
-    always @(*) begin
-        // 先給預設值，避免產生不想要的 Latch
-        RegWrite = 1'b0;
-        MemtoReg = 1'b0;    //0 : ALU result //1 : Memory data //Who write to RegFile
-        MemWrite = 1'b0;
-        MemRead  = 1'b0;
+    // --- 控制訊號 (Control Signals) ---
+    output reg RegWrite,      // 允許寫回暫存器
+    output reg MemtoReg,      // 1: 寫回記憶體資料, 0: 寫回 ALU 結果
+    output reg MemWrite,      // 允許寫入記憶體
+    output reg MemRead,       // 允許讀取記憶體
+    output reg ALUSrc         // 【新增】0: ALU 吃 RS2, 1: ALU 吃立即數(imm)
+);
 
-    //這些東西會在top中以wire存著。是控制信號
+    // 1. 拆解 16-bit 指令 (硬體接線)
+    assign op  = instr[15:12]; // 前 4 個 bit 是指令代碼
+    assign rd  = instr[11:9];  // 接下來 3 個 bit 是目的地
+    assign rs1 = instr[8:6];   // 接下來 3 個 bit 是來源 1
+    assign rs2 = instr[2:0];   // 最後 3 個 bit 是來源 2 (只有部分指令會用到)
+    assign imm = instr[5:0];   // 【精華】把最後 6 個 bit 當作常數數字
+
+    // 2. 根據 op 產生控制訊號
+    always @(*) begin
+        // 預設所有控制訊號為 0，避免產生 Latch (未知狀態)
+        RegWrite = 0;
+        MemtoReg = 0;
+        MemWrite = 0;
+        MemRead  = 0;
+        ALUSrc   = 0;
+
         case (op)
-            2'b00: begin // ADD
-                RegWrite = 1'b1;
-                MemtoReg = 1'b0; // regFile's data get from ALU's output
+            4'b0000: begin // ADD (暫存器 + 暫存器)
+                RegWrite = 1;
+                ALUSrc   = 0; // ALU 第二輸入選 RS2
             end
-            2'b01: begin // SUB
-                RegWrite = 1'b1;
-                MemtoReg = 1'b0; // 來源是 ALU
+            
+            4'b0001: begin // SUB (暫存器 - 暫存器)
+                RegWrite = 1;
+                ALUSrc   = 0;
             end
-            2'b10: begin // LW (Load Word)
-                RegWrite = 1'b1;
-                MemtoReg = 1'b1; // 來源是 Memory
-                MemRead  = 1'b1;
+            
+            4'b0010: begin // ADDI (新增：暫存器 + 立即數)
+                RegWrite = 1;
+                ALUSrc   = 1; // 【關鍵】ALU 第二輸入改選 imm
             end
-            2'b11: begin // SW (Store Word)
-                RegWrite = 1'b0; // 不寫回暫存器
-                MemWrite = 1'b1; // 開啟記憶體寫入
+
+            4'b0100: begin // LW (讀取記憶體)
+                RegWrite = 1;
+                MemtoReg = 1; // 資料來自 Memory
+                MemRead  = 1;
+                ALUSrc   = 1; // 【改變】我們未來用 RS1 + imm 來算位址
             end
-            default: ; 
+
+            4'b0101: begin // SW (寫入記憶體)
+                MemWrite = 1;
+                ALUSrc   = 1; // 位址一樣用 RS1 + imm 來算
+            end
+            
+            default: ; // 其他未定義指令不做事
         endcase
     end
-    
+
 endmodule

@@ -8,27 +8,35 @@ module top(
     output [7:0] dbg_alu
 );
 
-    // --- Wire 定義 ---
-    wire [7:0] rd1, rd2; //read data
+    // --- Wire 定義 (V2.0 升級版) ---
+    wire [7:0] rd1, rd2; 
     wire [7:0] alu_out;  
     wire [3:0] pc;
-    wire [10:0] instr;   //data: instruction
-    wire [2:0] rs1, rs2, rd; //readsource(address) //rd is the destination(addess)
-    wire [1:0] op;  //00,01,10,11
     
-    // Data Memory 讀出的資料
+    wire [15:0] instr;       // 【修改】指令拓寬為 16-bit
+    wire [2:0] rs1, rs2, rd; 
+    wire [3:0] op;           // 【修改】Opcode 拓寬為 4-bit
+    
     wire [7:0] dmem_out;
+    wire RegWrite, MemtoReg, MemWrite, MemRead;
+    wire zero;
     
-    // 新增：控制訊號 (應由 decoder 產生)
-    wire RegWrite;    // 決定是否寫回暫存器 (sw 指令時為 0)
-    wire MemtoReg;    // 0: 寫回 ALU 結果, 1: 寫回 Memory 資料
-    wire MemWrite;    // 1: 執行 sw 指令
-    wire MemRead;     // 1: 執行 lw 指令
+    // --- 新增的 MUX 與立即數神經 ---
+    wire ALUSrc;             // 控制 ALU B 端來源的訊號
+    wire [5:0] imm;          // 從 Decoder 接收的 6-bit 立即數
+    wire [7:0] imm_ext;      // 擴充成 8-bit 的立即數
+    wire [7:0] alu_b_in;     // 最終送進 ALU B 端的資料
 
-    // --- 修改點 1: 寫回暫存器的資料選擇 (MUX) ---
     wire [7:0] final_wd;
-    assign final_wd = (MemtoReg) ? dmem_out : alu_out; 
-    //data instead of control //以此wire 存著這個data
+    assign final_wd = (MemtoReg) ? dmem_out : alu_out;
+    
+    // --- 立即數擴充 (Sign Extension) ---
+    // 說明：把 6-bit 的最高位 (imm[5]) 複製兩次補在前面，湊成 8-bit，這叫做「符號擴充」，保留正負號。
+    assign imm_ext = {{2{imm[5]}}, imm}; 
+
+    // --- ALU B 端的軌道切換器 (MUX) ---
+    // 說明：如果 ALUSrc 是 1，選 imm_ext；如果是 0，選 rd2
+    assign alu_b_in = (ALUSrc) ? imm_ext : rd2;
 
 
     // --- 模組實例化 ---
@@ -44,17 +52,19 @@ module top(
         .instr(instr)
     );
     
-    // 注意：你的 decoder 需要擴充輸出這些控制訊號
+    // 升級版 Decoder 接線
     decoder dec_inst(
         .instr(instr),
-        .op(op),   //control siginal
+        .op(op),
         .rs1(rs1),
-        .rs2(rs2),//resource
-        .rd(rd), //destination
-        .RegWrite(RegWrite), // 新增 control signal Output
-        .MemtoReg(MemtoReg), // 新增
-        .MemWrite(MemWrite), // 新增
-        .MemRead(MemRead)    // 新增
+        .rs2(rs2),
+        .rd(rd),
+        .imm(imm),           // 【新增接線】拉出 6-bit 立即數
+        .RegWrite(RegWrite), 
+        .MemtoReg(MemtoReg), 
+        .MemWrite(MemWrite), 
+        .MemRead(MemRead),
+        .ALUSrc(ALUSrc)      // 【新增接線】拉出 MUX 控制訊號
     );
     
     RegFile rf(
@@ -69,15 +79,14 @@ module top(
     );
 
 
-    wire zero;
+    // 升級版 ALU 接線 (乾淨俐落版)
     ALU_8 alu(
         .a(rd1),
-        .b(rd2),
-        .alu_op(op),
+        .b(alu_b_in),        
+        .alu_op(op),         // 【恢復簡潔】直接把 Decoder 的 4-bit op 原封不動傳給 ALU
         .result(alu_out),
         .zero(zero)
     );
-    
 
     
     // --- 修改點 2: 插入 Data Memory ---

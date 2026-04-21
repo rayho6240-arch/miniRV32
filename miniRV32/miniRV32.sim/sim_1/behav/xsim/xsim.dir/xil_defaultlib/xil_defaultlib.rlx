@@ -1,0 +1,16 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/ALU_8.v,1776233698,verilog,,D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/Adder_8_OV.v,,ALU_8,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/Adder_8_OV.v,1776216906,verilog,,D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/FA.v,,Adder_8_OV,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/FA.v,1776156599,verilog,,D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/HA.v,,FA,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/HA.v,1776155787,verilog,,D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/PreOP.v,,HA,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/PreOP.v,1776232816,verilog,,D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/RCA_4.v,,PreOp,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/RCA_4.v,1776157508,verilog,,D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/RCA_8.v,,RCA_4,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/RCA_8.v,1776233692,verilog,,D:/Programing/VerilogProject/miniRV32/miniRV32/miniRV32.srcs/sources_1/new/RegFile.v,,RCA_8,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/checkOV.v,1776216938,verilog,,D:/Programing/VerilogProject/miniRV32/miniRV32/miniRV32.srcs/sources_1/new/top.v,,checkOV,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/miniRV32/miniRV32.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,,,,,,,
+D:/Programing/VerilogProject/miniRV32/miniRV32/miniRV32.srcs/sim_1/new/top_tb.v,1776651958,verilog,,,,top_tb,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/miniRV32/miniRV32.srcs/sources_1/new/RegFile.v,1776654693,verilog,,D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/checkOV.v,,RegFile,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/miniRV32/miniRV32.srcs/sources_1/new/top.v,1776654484,verilog,,D:/Programing/VerilogProject/miniRV32/miniRV32/miniRV32.srcs/sim_1/new/top_tb.v,,top,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,

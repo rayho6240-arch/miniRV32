@@ -1,0 +1,18 @@
+Time resolution is 1 ps
+Time:                   7 | PC: 0 | OP:00 | RS1:2 | RS2:3 | RD:1 | ALU:  8
+--------------------------------------------------
+Time	 PC	 OP	 RS1	 RS2	 RD	 ALU_Out
+--------------------------------------------------
+Time:                  17 | PC: 1 | OP:01 | RS1:1 | RS2:3 | RD:2 | ALU:  3
+Time:                  27 | PC: 2 | OP:10 | RS1:2 | RS2:1 | RD:3 | ALU:  0
+Time:                  37 | PC: 3 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+Time:                  47 | PC: 4 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+Time:                  57 | PC: 5 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+Time:                  67 | PC: 6 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+Time:                  77 | PC: 7 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+Time:                  87 | PC: 8 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+Time:                  97 | PC: 9 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+Time:                 107 | PC:10 | OP:00 | RS1:0 | RS2:0 | RD:0 | ALU:  0
+--------------------------------------------------
+模擬結束
+$stop called at time : 112 ns : File "D:/Programing/VerilogProject/miniRV32/cpu_stage2_top/cpu_stage2_top.srcs/sim_1/new/top_tb.v" Line 41

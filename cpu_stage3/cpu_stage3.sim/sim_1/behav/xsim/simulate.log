@@ -1,0 +1,6 @@
+Time resolution is 1 ps
+Time:               22000 | PC:0 | SW  - Data:  5 to Addr:  8
+Time:               32000 | PC:1 | ADD - R1 =   0
+Time:               42000 | PC:2 | LW  - R4 loaded with   0
+Time:               52000 | PC:3 | SUB - Result:   0, Zero: 1
+$finish called at time : 102 ns : File "D:/Programing/VerilogProject/miniRV32/cpu_stage3/cpu_stage3.srcs/sim_1/new/top_tb.v" Line 58

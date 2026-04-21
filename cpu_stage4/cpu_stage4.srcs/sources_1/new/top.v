@@ -27,7 +27,7 @@ module top(
     wire [7:0] imm_ext;      // 擴充成 8-bit 的立即數
     wire [7:0] alu_b_in;     // 最終送進 ALU B 端的資料
 
-    wire [7:0] final_wd;
+    wire [7:0] final_wd;  //wd: write data 
     assign final_wd = (MemtoReg) ? dmem_out : alu_out;
     
     // --- 立即數擴充 (Sign Extension) ---
@@ -37,13 +37,21 @@ module top(
     // --- ALU B 端的軌道切換器 (MUX) ---
     // 說明：如果 ALUSrc 是 1，選 imm_ext；如果是 0，選 rd2
     assign alu_b_in = (ALUSrc) ? imm_ext : rd2;
-
+    
+    wire Branch;
+    wire PCSrc;
+    wire [3:0] target_pc;
+    assign PCSrc = Branch & zero;
+    assign target_pc = imm[3:0] ;  //邏輯運算中止條件默認是用ADDI 來執行, 資訊在立即數中
+    
 
     // --- 模組實例化 ---
     
     PC pc_inst(
         .clk(clk),
         .rst_n(rst_n),
+        .PCSrc(PCSrc),
+        .target_pc(target_pc),
         .pc(pc)
     );
     
@@ -64,7 +72,8 @@ module top(
         .MemtoReg(MemtoReg), 
         .MemWrite(MemWrite), 
         .MemRead(MemRead),
-        .ALUSrc(ALUSrc)      // 【新增接線】拉出 MUX 控制訊號
+        .ALUSrc(ALUSrc),      // 【新增接線】拉出 MUX 控制訊號
+        .Branch(Branch)
     );
     
     RegFile rf(

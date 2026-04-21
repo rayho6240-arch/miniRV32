@@ -12,7 +12,8 @@ module decoder(
     output reg MemtoReg,      // 1: 寫回記憶體資料, 0: 寫回 ALU 結果
     output reg MemWrite,      // 允許寫入記憶體
     output reg MemRead,       // 允許讀取記憶體
-    output reg ALUSrc         // 【新增】0: ALU 吃 RS2, 1: ALU 吃立即數(imm)
+    output reg ALUSrc,        // 【新增】0: ALU 吃 RS2, 1: ALU 吃立即數(imm)
+    output reg Branch         //用於跳轉指令
 );
 
     // 1. 拆解 16-bit 指令 (硬體接線)
@@ -56,7 +57,14 @@ module decoder(
 
             4'b0101: begin // SW (寫入記憶體)
                 MemWrite = 1;
-                ALUSrc   = 1; // 位址一樣用 RS1 + imm 來算
+                ALUSrc = 1; // 位址一樣用 RS1 + imm 來算
+            end
+            
+            4'b1000: begin // BEQ (Branch if Equal)
+                RegWrite = 0; // 跳轉指令不寫入暫存器
+                ALUSrc   = 0; // 比較兩個暫存器 (RS1 vs RS2)
+                // 我們需要一個新訊號告訴 Top：這是一條 Branch 指令
+                Branch   = 1; 
             end
             
             default: ; // 其他未定義指令不做事

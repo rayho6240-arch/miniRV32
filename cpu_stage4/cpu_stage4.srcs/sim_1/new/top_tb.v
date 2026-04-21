@@ -25,9 +25,7 @@ module top_tb;
         rst_n = 0;
         
         #12 rst_n = 1; // Release reset at 12ns, PC starts from 0
-        
-        #12 rst_n = 1; // Release reset at 12ns, PC starts from 0
-        
+
         // 【新增】等 1ns 讓訊號穩定，先拍下 PC:0 的瞬間
         #1; 
         $display("Time:%0t | PC:%d | Instr:%b", $time, uut.pc, uut.instr);
@@ -42,7 +40,7 @@ module top_tb;
 
         // --- Auto-Observation Logic ---
         // repeat(3) means we observe for 4 clock cycles, enough for our 3 instructions
-        repeat(3) begin
+        repeat(10) begin
             @(negedge clk); // Snapshot at the falling edge of the clock (data is stable)
             
             $display("Time:%0t | PC:%d | Instr:%b", $time, uut.pc, uut.instr);

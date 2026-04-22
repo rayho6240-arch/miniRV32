@@ -5,8 +5,14 @@ module top(
     input rst_n,
     output [7:0] dbg_rs1,
     output [7:0] dbg_rs2,
-    output [7:0] dbg_alu
+    output [7:0] dbg_alu,
+    
+    input clk_125,    // 【關鍵】確保這裡有定義來自 PL 的 125MHz 時脈
+    output VGA_HS,
+    output VGA_VS,
+    output [2:0] VGA_RGB
 );
+
 
     // --- Wire 定義 (V2.0 升級版) ---
     wire [7:0] rd1, rd2; 
@@ -45,6 +51,33 @@ module top(
     assign target_pc = imm[3:0] ;  //邏輯運算中止條件默認是用ADDI 來執行, 資訊在立即數中
     
 
+    //分頻 for VGA
+    reg [2:0] clk_div; // 3-bit 計數器
+    reg clk_25M;
+
+
+    always @(posedge clk_125) begin
+        if (clk_div == 2) begin // 每 2.5 個週期翻轉，或是簡單用 5 分頻
+            clk_div <= 0;
+        end else begin
+            clk_div <= clk_div + 1;
+        end
+    end
+    
+    // 簡單的 5 分頻邏輯 (125 / 5 = 25)
+    always @(posedge clk_125 or negedge rst_n) begin
+        if (!rst_n) begin
+            clk_25M <= 0;
+            clk_div <= 0;
+        end else if (clk_div == 2) begin
+            clk_div <= 0;
+            clk_25M <= ~clk_25M;
+        end else begin
+            clk_div <= clk_div + 1;
+        end
+    end
+
+    
     // --- 模組實例化 ---
     
     PC pc_inst(
@@ -107,6 +140,18 @@ module top(
         .wd(rd2),            // 要存入的 data 來自 RS2 (rd2)
         .rd(dmem_out)
     );
+    
+    display_ctrl u_display(
+        .clk(clk_25M),      // 使用我們產生的 25MHz 時脈
+        .rst_n(rst_n),
+        .vram_data(vram_dout),
+        .vram_addr(vram_read_addr),
+        .hsync(VGA_HS),
+        .vsync(VGA_VS),
+        .rgb(VGA_RGB)       // 這裡的 RGB 可以直接接往 FPGA 的輸出腳位
+    );
+    
+    
 
     // DEBUG OUTPUT
     assign dbg_rs1 = rd1;

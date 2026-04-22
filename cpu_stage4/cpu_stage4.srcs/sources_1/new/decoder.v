@@ -67,6 +67,13 @@ module decoder(
                 Branch   = 1; 
             end
             
+            4'b1100: begin // SET_PIXEL (自訂繪圖指令)
+                RegWrite = 0;   // 不寫回暫存器
+                MemWrite = 1;   // 開啟寫入訊號 (給 VRAM)
+                ALUSrc   = 0;   
+                // ... 這裡我們會需要多一個訊號來切換「寫入 DataMem」還是「寫入 VRAM」
+            end
+            
             default: ; // 其他未定義指令不做事
         endcase
     end

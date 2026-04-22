@@ -33,3 +33,25 @@ close_sim
 launch_simulation
 source top_tb.tcl
 close_sim
+launch_simulation
+launch_simulation
+source top_tb.tcl
+close_sim
+launch_simulation
+source top_tb.tcl
+close_sim
+launch_simulation
+source top_tb.tcl
+close_sim
+close [ open D:/Programing/VerilogProject/miniRV32/cpu_stage4/cpu_stage4.srcs/sources_1/new/vram.v w ]
+add_files D:/Programing/VerilogProject/miniRV32/cpu_stage4/cpu_stage4.srcs/sources_1/new/vram.v
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  D:/Programing/VerilogProject/miniRV32/cpu_stage4/cpu_stage4.srcs/sources_1/new/top.v]
+update_compile_order -fileset sources_1
+undo
+update_compile_order -fileset sources_1
+close [ open D:/Programing/VerilogProject/miniRV32/cpu_stage4/cpu_stage4.srcs/sources_1/new/display_ctrl.v w ]
+add_files D:/Programing/VerilogProject/miniRV32/cpu_stage4/cpu_stage4.srcs/sources_1/new/display_ctrl.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation

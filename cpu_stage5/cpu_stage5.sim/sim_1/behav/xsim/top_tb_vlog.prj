@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef" \
+"../../../../../../../../LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/ALU_8.v" \
+"../../../../cpu_stage5.srcs/sources_1/new/IMEM.v" \
+"../../../../cpu_stage5.srcs/sources_1/new/ImmGen.v" \
+"../../../../cpu_stage5.srcs/sources_1/new/PC.v" \
+"../../../../cpu_stage5.srcs/sources_1/new/RegFile.v" \
+"../../../../cpu_stage5.srcs/sources_1/new/data_mem.v" \
+"../../../../cpu_stage5.srcs/sources_1/new/decoder.v" \
+"../../../../cpu_stage5.srcs/sources_1/new/top.v" \
+"../../../../cpu_stage5.srcs/sim_1/new/top_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/ALU_8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/IMEM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IMEM
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/ImmGen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ImmGen
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/PC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/RegFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/data_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder_rv32
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sim_1/new/top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb

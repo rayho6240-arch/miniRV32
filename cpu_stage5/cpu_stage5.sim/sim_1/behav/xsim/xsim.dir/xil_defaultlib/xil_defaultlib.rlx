@@ -1,0 +1,14 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/ALU_8.v,1776872259,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/IMEM.v,,ALU_32,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,,,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sim_1/new/top_tb.v,1776872965,verilog,,,,top_tb,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/IMEM.v,1776872694,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/ImmGen.v,,IMEM,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/ImmGen.v,1776872457,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/PC.v,,ImmGen,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/PC.v,1776873211,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/RegFile.v,,PC,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/RegFile.v,1776872181,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/data_mem.v,,RegFile,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/data_mem.v,1776872794,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/decoder.v,,data_mem,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/decoder.v,1776872973,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/top.v,,decoder_rv32,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sources_1/new/top.v,1776873004,verilog,,D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sim_1/new/top_tb.v,,top,,,../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef,,,,,

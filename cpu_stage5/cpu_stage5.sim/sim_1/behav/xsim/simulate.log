@@ -1,0 +1,13 @@
+Time resolution is 1 ps
+Time:                15000 | PC: 00000000 | Instr: 00500113
+Time:                25000 | PC: 00000004 | Instr: 002101b3
+Time:                35000 | PC: 00000008 | Instr: 00000013
+Time:                45000 | PC: 0000000c | Instr: xxxxxxxx
+Time:                55000 | PC: 000000XX | Instr: xxxxxxxx
+Time:                65000 | PC: xxxxxxxx | Instr: xxxxxxxx
+Time:                75000 | PC: xxxxxxxx | Instr: xxxxxxxx
+Time:                85000 | PC: xxxxxxxx | Instr: xxxxxxxx
+Time:                95000 | PC: xxxxxxxx | Instr: xxxxxxxx
+Time:               105000 | PC: xxxxxxxx | Instr: xxxxxxxx
+===== 模擬結束 =====
+$finish called at time : 110 ns : File "D:/Programing/VerilogProject/miniRV32/cpu_stage5/cpu_stage5.srcs/sim_1/new/top_tb.v" Line 35

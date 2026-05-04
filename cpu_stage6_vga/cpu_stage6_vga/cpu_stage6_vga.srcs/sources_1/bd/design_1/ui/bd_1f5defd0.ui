@@ -1,0 +1,32 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.15735",
+   "Default View_TopLeft":"-118,-220",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
+#  -string -flagsOSRD
+preplace port port-id_clk_create -pg 1 -lvl 0 -x -10 -y 140 -defaultsOSRD
+preplace port port-id_rst_n -pg 1 -lvl 0 -x -10 -y 40 -defaultsOSRD
+preplace port port-id_hdmi_tx_clk_n -pg 1 -lvl 3 -x 530 -y 130 -defaultsOSRD
+preplace port port-id_hdmi_tx_clk_p -pg 1 -lvl 3 -x 530 -y 150 -defaultsOSRD
+preplace portBus btn -pg 1 -lvl 0 -x -10 -y -60 -defaultsOSRD
+preplace portBus hdmi_tx_p -pg 1 -lvl 3 -x 530 -y 60 -defaultsOSRD
+preplace portBus hdmi_tx_n -pg 1 -lvl 3 -x 530 -y 90 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 130 -defaultsOSRD
+preplace inst top_0 -pg 1 -lvl 2 -x 360 -y 110 -defaultsOSRD
+preplace netloc Net 1 0 2 20 40 200
+preplace netloc btn_1 1 0 2 NJ -60 210
+preplace netloc clk_create_1 1 0 1 N 140
+preplace netloc clk_wiz_0_clk_out1 1 1 1 N 100
+preplace netloc clk_wiz_0_clk_out2 1 1 1 N 120
+preplace netloc clk_wiz_0_clk_out3 1 1 1 N 140
+preplace netloc clk_wiz_0_locked 1 1 1 N 160
+preplace netloc top_0_hdmi_tx_clk_n 1 2 1 490 120n
+preplace netloc top_0_hdmi_tx_clk_p 1 2 1 500 100n
+preplace netloc top_0_hdmi_tx_n 1 2 1 500 80n
+preplace netloc top_0_hdmi_tx_p 1 2 1 N 60
+levelinfo -pg 1 -10 110 360 530
+pagesize -pg 1 -db -bbox -sgen -130 -80 680 220
+"
+}
+0

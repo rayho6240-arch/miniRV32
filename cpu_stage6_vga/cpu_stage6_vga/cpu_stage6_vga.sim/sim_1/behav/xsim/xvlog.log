@@ -1,0 +1,36 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.gen/sources_1/ip/clk_wiz_2/clk_wiz_2_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_2_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.gen/sources_1/ip/clk_wiz_2/clk_wiz_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/LogicDesignLab/Lab3/HA/HA.srcs/sources_1/new/ALU_8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/IMEM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IMEM
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/ImmGen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ImmGen
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/PC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/RegFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/async_reset.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module async_reset
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/data_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder_rv32
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/display_timings.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module display_timings
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/dvi_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dvi_generator
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/serializer_10to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module serializer_10to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/tmds_encoder_dvi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tmds_encoder_dvi
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/vram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sim_1/new/top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

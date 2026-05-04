@@ -1,0 +1,8 @@
+verilog xil_defaultlib -i "../../../../../../../../../Applications/AMD_Vivado/2025.2/Vivado/data/rsb/busdef" --include "../../../ipstatic" \
+"../../../../cpu_stage6_vga.gen/sources_1/ip/clk_wiz_2/clk_wiz_2_clk_wiz.v" \
+"../../../../cpu_stage6_vga.gen/sources_1/ip/clk_wiz_2/clk_wiz_2.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

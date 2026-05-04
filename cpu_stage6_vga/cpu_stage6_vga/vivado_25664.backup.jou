@@ -1,0 +1,218 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Wed Apr 29 20:17:26 2026
+# Process ID         : 25664
+# Current directory  : D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent28996 D:\Programing\VerilogProject\miniRV32\cpu_stage6_vga\cpu_stage6_vga\cpu_stage6_vga.xpr
+# Log file           : D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/vivado.log
+# Journal file       : D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga\vivado.jou
+# Running On         : LAPTOP-L8B3PG7A
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) Ultra 7 155H
+# CPU Frequency      : 2995 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 22
+# Host memory        : 34046 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 36194 MB
+# Available Virtual  : 18511 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse {D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/tmds_encoder_dvi.v D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/dvi_generator.v D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/display_timings.v D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/serializer_10to1.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/display_ctrl.v] -no_script -reset -force -quiet
+remove_files  D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/new/display_ctrl.v
+add_files -norecurse D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/async_reset.v
+update_compile_order -fileset sources_1
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name clk_wiz_0
+set_property -dict [list \
+  CONFIG.CLKIN1_JITTER_PS {80.0} \
+  CONFIG.CLKOUT1_JITTER {323.721} \
+  CONFIG.CLKOUT1_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.175} \
+  CONFIG.CLKOUT2_JITTER {231.295} \
+  CONFIG.CLKOUT2_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {125.875} \
+  CONFIG.CLKOUT2_USED {true} \
+  CONFIG.CLKOUT3_JITTER {323.721} \
+  CONFIG.CLKOUT3_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {25.000} \
+  CONFIG.CLKOUT3_USED {true} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {35.250} \
+  CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
+  CONFIG.MMCM_CLKOUT0_DIVIDE_F {35.000} \
+  CONFIG.MMCM_CLKOUT1_DIVIDE {7} \
+  CONFIG.MMCM_CLKOUT2_DIVIDE {35} \
+  CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+  CONFIG.NUM_OUT_CLKS {3} \
+  CONFIG.PRIM_IN_FREQ {125} \
+  CONFIG.RESET_PORT {resetn} \
+  CONFIG.RESET_TYPE {ACTIVE_LOW} \
+] [get_ips clk_wiz_0]
+generate_target {instantiation_template} [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+update_compile_order -fileset sources_1
+generate_target all [get_files  d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+catch { config_ip_cache -export [get_ips -all clk_wiz_0] }
+export_ip_user_files -of_objects [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+launch_runs clk_wiz_0_synth_1 -jobs 6
+wait_on_run clk_wiz_0_synth_1
+export_simulation -lib_map_path [list {modelsim=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/modelsim} {questa=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/questa} {riviera=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/riviera} {activehdl=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/activehdl}] -of_objects [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci] -directory D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.ip_user_files/sim_scripts -ip_user_files_dir D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.ip_user_files -ipstatic_source_dir D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+add_files -fileset constrs_1 -norecurse {{D:/Programing/VerilogProject/miniRV32/lib/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc}}
+add_files -norecurse D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/instr.hex
+update_compile_order -fileset sources_1
+set_property file_type {Memory Initialization Files} [get_files  D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/instr.hex]
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name clk_wiz_1
+set_property -dict [list \
+  CONFIG.CLKIN1_JITTER_PS {80.0} \
+  CONFIG.CLKOUT1_JITTER {124.615} \
+  CONFIG.CLKOUT1_PHASE_ERROR {96.948} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {8.000} \
+  CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
+  CONFIG.PRIM_IN_FREQ {125} \
+] [get_ips clk_wiz_1]
+generate_target {instantiation_template} [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1.xci]
+update_compile_order -fileset sources_1
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name clk_wiz_2
+set_property -dict [list \
+  CONFIG.CLKIN1_JITTER_PS {80.0} \
+  CONFIG.CLKOUT1_JITTER {323.721} \
+  CONFIG.CLKOUT1_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.175} \
+  CONFIG.CLKOUT2_JITTER {231.295} \
+  CONFIG.CLKOUT2_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {125.875} \
+  CONFIG.CLKOUT2_USED {true} \
+  CONFIG.CLKOUT3_JITTER {323.721} \
+  CONFIG.CLKOUT3_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {25.0} \
+  CONFIG.CLKOUT3_USED {true} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {35.250} \
+  CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
+  CONFIG.MMCM_CLKOUT0_DIVIDE_F {35.000} \
+  CONFIG.MMCM_CLKOUT1_DIVIDE {7} \
+  CONFIG.MMCM_CLKOUT2_DIVIDE {35} \
+  CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+  CONFIG.NUM_OUT_CLKS {3} \
+  CONFIG.PRIM_IN_FREQ {125.000} \
+  CONFIG.RESET_PORT {resetn} \
+  CONFIG.RESET_TYPE {ACTIVE_LOW} \
+] [get_ips clk_wiz_2]
+generate_target {instantiation_template} [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_2/clk_wiz_2.xci]
+update_compile_order -fileset sources_1
+generate_target all [get_files  d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_2/clk_wiz_2.xci]
+catch { config_ip_cache -export [get_ips -all clk_wiz_2] }
+export_ip_user_files -of_objects [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_2/clk_wiz_2.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_2/clk_wiz_2.xci]
+launch_runs clk_wiz_2_synth_1 -jobs 6
+wait_on_run clk_wiz_2_synth_1
+export_simulation -lib_map_path [list {modelsim=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/modelsim} {questa=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/questa} {riviera=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/riviera} {activehdl=D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.cache/compile_simlib/activehdl}] -of_objects [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_2/clk_wiz_2.xci] -directory D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.ip_user_files/sim_scripts -ip_user_files_dir D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.ip_user_files -ipstatic_source_dir D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+export_ip_user_files -of_objects  [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci] -no_script -reset -force -quiet
+remove_files  -fileset clk_wiz_0 d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+export_ip_user_files -of_objects  [get_files d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1.xci] -no_script -reset -force -quiet
+remove_files  d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1.xci
+create_bd_design "design_1"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+endgroup
+create_bd_cell -type module -reference top top_0
+connect_bd_net [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins top_0/clk]
+connect_bd_net [get_bd_pins clk_wiz_0/reset] [get_bd_pins top_0/rst_n]
+save_bd_design
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_1
+delete_bd_objs [get_bd_cells clk_wiz_1]
+startgroup
+set_property -dict [list CONFIG.PRIM_IN_FREQ.VALUE_SRC USER] [get_bd_cells clk_wiz_0]
+set_property -dict [list \
+  CONFIG.CLKIN1_JITTER_PS {80.0} \
+  CONFIG.CLKOUT1_JITTER {323.721} \
+  CONFIG.CLKOUT1_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.178} \
+  CONFIG.CLKOUT2_JITTER {231.295} \
+  CONFIG.CLKOUT2_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {125.875} \
+  CONFIG.CLKOUT2_USED {true} \
+  CONFIG.CLKOUT3_JITTER {323.721} \
+  CONFIG.CLKOUT3_PHASE_ERROR {251.929} \
+  CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {25.000} \
+  CONFIG.CLKOUT3_USED {true} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {35.250} \
+  CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
+  CONFIG.MMCM_CLKOUT0_DIVIDE_F {35.000} \
+  CONFIG.MMCM_CLKOUT1_DIVIDE {7} \
+  CONFIG.MMCM_CLKOUT2_DIVIDE {35} \
+  CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+  CONFIG.NUM_OUT_CLKS {3} \
+  CONFIG.PRIM_IN_FREQ {125.000} \
+  CONFIG.RESET_PORT {resetn} \
+  CONFIG.RESET_TYPE {ACTIVE_LOW} \
+] [get_bd_cells clk_wiz_0]
+delete_bd_objs [get_bd_nets Net1]
+endgroup
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+connect_bd_net [get_bd_pins clk_wiz_0/resetn] [get_bd_pins top_0/rst_n]
+delete_bd_objs [get_bd_nets Net] [get_bd_nets Net1] [get_bd_cells top_0]
+create_bd_cell -type module -reference top top_0
+connect_bd_net [get_bd_pins top_0/rst_n] [get_bd_pins clk_wiz_0/resetn]
+save_bd_design
+regenerate_bd_layout
+create_bd_cell -type module -reference top top_1
+delete_bd_objs [get_bd_cells top_1]
+delete_bd_objs [get_bd_nets Net] [get_bd_cells top_0]
+report_ip_status -name ip_status 
+create_bd_cell -type module -reference top top_0
+report_ip_status -name ip_status 
+update_module_reference [get_ips  design_1_top_0_2]
+connect_bd_net [get_bd_pins top_0/clk_pix] [get_bd_pins clk_wiz_0/clk_out1]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins top_0/clk_pix_5x]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out3] [get_bd_pins top_0/clk_cpu]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins top_0/locked]
+connect_bd_net [get_bd_pins clk_wiz_0/resetn] [get_bd_pins top_0/rst_n]
+create_bd_port -dir O -type clk clk_create
+set_property location {78 100} [get_bd_ports clk_create]
+delete_bd_objs [get_bd_ports clk_create]
+create_bd_port -dir I clk_create
+delete_bd_objs [get_bd_ports clk_create]
+create_bd_port -dir I -type clk -freq_hz 125000000 clk_create
+set_property location {82 101} [get_bd_ports clk_create]
+set_property location {-54 81} [get_bd_ports clk_create]
+connect_bd_net [get_bd_ports clk_create] [get_bd_pins clk_wiz_0/clk_in1]
+startgroup
+create_bd_port -dir I -type rst rst_n
+endgroup
+set_property location {-5 -32} [get_bd_ports rst_n]
+connect_bd_net [get_bd_ports rst_n] [get_bd_pins clk_wiz_0/resetn]
+regenerate_bd_layout -routing
+regenerate_bd_layout -routing
+save_bd_design
+make_wrapper -files [get_files D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+open_bd_design {D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_port -dir I -from 3 -to 0 -type data btn
+connect_bd_net [get_bd_ports btn] [get_bd_pins top_0/btn]
+create_bd_port -dir O -from 2 -to 0 -type data hdmi_tx_p
+create_bd_port -dir O -from 2 -to 0 -type data hdmi_tx_n
+create_bd_port -dir O -type data hdmi_tx_clk_n
+create_bd_port -dir O -type data hdmi_tx_clk_p
+set_property location {506 150} [get_bd_ports hdmi_tx_clk_p]
+connect_bd_net [get_bd_ports hdmi_tx_p] [get_bd_pins top_0/hdmi_tx_p]
+connect_bd_net [get_bd_ports hdmi_tx_n] [get_bd_pins top_0/hdmi_tx_n]
+connect_bd_net [get_bd_ports hdmi_tx_clk_n] [get_bd_pins top_0/hdmi_tx_clk_p]
+connect_bd_net [get_bd_ports hdmi_tx_clk_p] [get_bd_pins top_0/hdmi_tx_clk_n]
+save_bd_design
+open_bd_design {D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design
+report_ip_status -name ip_status 
+save_bd_design
+make_wrapper -files [get_files D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sources_1/bd/design_1/design_1.bd] -top

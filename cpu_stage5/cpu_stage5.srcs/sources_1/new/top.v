@@ -13,12 +13,22 @@ module top(
     wire [4:0]  rs1, rs2, rd;
     wire [3:0]  alu_op;
     wire        RegWrite, ALUSrc, MemWrite, MemRead, MemtoReg, Branch, zero;
+    wire Jump, Jalr; // <--- 補上這行
 
     // --- 1. PC 邏輯 (注意：RISC-V 標準是 PC + 4) ---
     assign pc_plus_4 = pc + 32'd4;
-    // 這裡暫時不考慮 Branch 跳轉，先讓 PC 順著跑
-    assign next_pc = (Branch && zero) ? (pc + imm) : pc_plus_4;
+    
+    
+    wire [31:0] jump_target = pc + imm;      // JAL 的目標
+    // 加上位元屏蔽，確保對齊
+    wire [31:0] jalr_target = (rd1 + imm) & 32'hFFFFFFFE;     // JALR 的目標 (rs1 + offset)
 
+
+    // PC 選擇邏輯
+    assign next_pc = (Jalr) ? jalr_target :
+                     (Jump || (Branch && zero)) ? jump_target : 
+                     pc_plus_4;
+    
     PC u_pc(
         .clk(clk),
         .rst_n(rst_n),
@@ -39,9 +49,12 @@ module top(
         .alu_op(alu_op),
         .RegWrite(RegWrite), .ALUSrc(ALUSrc),
         .MemWrite(MemWrite), .MemRead(MemRead),
-        .MemtoReg(MemtoReg), .Branch(Branch)
+        .MemtoReg(MemtoReg), .Branch(Branch),
+        .Jump(Jump),        // <--- 補上連線
+        .Jalr(Jalr)         // <--- 補上連線
     );
-
+    
+    
     ImmGen u_immgen(
         .instr(instr),
         .imm(imm)
@@ -67,9 +80,14 @@ module top(
     );
 
 
-    // 回寫數據選擇 (MUX)
-    // 如果是 Load 指令 (MemtoReg=1)，選 dmem_out；否則選 alu_out
-    assign wd = (MemtoReg) ? dmem_out : alu_out;
+    // wd (Write Data) 現在是三選一 MUX
+    // 0: ALU 結果
+    // 1: Memory 資料 (Load)
+    // 2: PC + 4 (Jump 存回返回地址)
+    
+    assign wd = (Jump || Jalr) ? pc_plus_4 : 
+                (MemtoReg)     ? dmem_out : 
+                                 alu_out;
 
     // --- 5. ALU 與 MUX ---
     wire [31:0] alu_b = (ALUSrc) ? imm : rd2;

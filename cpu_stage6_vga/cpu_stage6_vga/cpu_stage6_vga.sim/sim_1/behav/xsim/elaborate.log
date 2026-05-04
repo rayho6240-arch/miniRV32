@@ -1,0 +1,14 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Applications/AMD_Vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'clk' on this module [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga/cpu_stage6_vga/cpu_stage6_vga.srcs/sim_1/new/top_tb.v:11]
+ERROR: [VRFC 10-8530] module 'display_timings_default' is ignored due to previous errors [D:/Programing/VerilogProject/miniRV32/lib/display_controller-main/rtl/display_timings.v:10]
+ERROR: [VRFC 10-8530] module 'MMCME2_ADV(CLKFBOUT_MULT_F=35.25,CLKIN1_PERIOD=8.0,CLKOUT0_DIVIDE_F=35.0,CLKOUT1_DIVIDE=7,CLKOUT2_DIVIDE=35,DIVCLK_DIVIDE=5)' is ignored due to previous errors [/proj/xbuilds/SWIP/2025.2_1113_1742/installs/lin64/2025.2/data/verilog/src/unisims/MMCME2_ADV.v:123]
+ERROR: [VRFC 10-8530] module 'OSERDESE2(DATA_RATE_TQ="SDR",DATA_WIDTH=10,INIT_OQ=1'b1,INIT_TQ=1'b1,TRISTATE_WIDTH=1)' is ignored due to previous errors [/proj/xbuilds/SWIP/2025.2_1113_1742/installs/lin64/2025.2/data/verilog/src/unisims/OSERDESE2.v:25]
+ERROR: [VRFC 10-8530] module 'B_OSERDESE2(DATA_RATE_TQ="SDR",DATA_WIDTH=10,INIT_OQ=1'b1,INIT_TQ=1'b1,TRISTATE_WIDTH=1)' is ignored due to previous errors [/proj/xbuilds/SWIP/2025.2_1113_1742/installs/lin64/2025.2/data/secureip/oserdese2/oserdese2_002.vp:3]
+ERROR: [VRFC 10-8530] module 'vioi_tri_outlogic_ship(DATA_RATE_TQ="SDR",DATA_WIDTH=10,INIT_OQ=1'b1,INIT_TQ=1'b1,SRVAL_OQ=1'b0,SRVAL_TQ=1'b0,TRISTATE_WIDTH=1)' is ignored due to previous errors [/proj/xbuilds/SWIP/2025.2_1113_1742/installs/lin64/2025.2/data/secureip/oserdese2/oserdese2_002.vp:5]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

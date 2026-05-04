@@ -10,10 +10,17 @@ module ImmGen(
 
     always @(*) begin
         case(opcode)
-            7'b0010011: imm = {{20{instr[31]}}, instr[31:20]};           // I-type (ADDI, LW...)
-            7'b0100011: imm = {{20{instr[31]}}, instr[31:25], instr[11:7]}; // S-type (SW)
-            7'b1100011: imm = {{19{instr[31]}}, instr[31], instr[7], instr[30:25], instr[11:8], 1'b0}; // B-type (BEQ)
-            default:    imm = 32'b0;
+            7'b0010011, 7'b0000011, 7'b1100111: // I-type (Calc, Load, JALR)
+                imm = {{20{instr[31]}}, instr[31:20]};
+            7'b0100011: // S-type (Store)
+                imm = {{20{instr[31]}}, instr[31:25], instr[11:7]};
+            7'b1100011: // B-type (Branch)
+                imm = {{19{instr[31]}}, instr[31], instr[7], instr[30:25], instr[11:8], 1'b0};
+            7'b0110111, 7'b0010111: // U-type (LUI, AUIPC) - 極度重要！
+                imm = {instr[31:12], 12'b0};
+            7'b1101111: // J-type (JAL) - 函式呼叫必備
+                imm = {{11{instr[31]}}, instr[31], instr[19:12], instr[20], instr[30:21], 1'b0};
+            default: imm = 32'b0;
         endcase
     end
 

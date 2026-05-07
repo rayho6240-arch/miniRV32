@@ -1,7 +1,7 @@
 module PC(
-    input clk,
-    input rst_n,
-    input [31:0] next_pc, // 【關鍵】新增這個輸入埠，用來接收 top 計算好的下一個地址
+    input wire clk,
+    input wire rst_n,
+    input wire [31:0] next_pc, // 【關鍵】新增這個輸入埠，用來接收 top 計算好的下一個地址
     output reg [31:0] pc
 );
 

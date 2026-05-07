@@ -1,8 +1,8 @@
 module decoder_rv32(
-    input  [31:0] instr,
-    output [4:0]  rs1,
-    output [4:0]  rs2,
-    output [4:0]  rd,
+    input  wire [31:0] instr,
+    output wire [4:0]  rs1,
+    output wire [4:0]  rs2,
+    output wire [4:0]  rd,
     output reg [3:0] alu_op,
     output reg    RegWrite,
     output reg    ALUSrc,

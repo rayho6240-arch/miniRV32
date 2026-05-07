@@ -81,8 +81,12 @@ read_verilog -library xil_defaultlib {
   D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/ImmGen.v
   D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/PC.v
   D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/RegFile.v
+  C:/Users/user/Downloads/async_reset.v
   D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/data_mem.v
   D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/decoder.v
+  C:/Users/user/Downloads/dvi_generator.v
+  C:/Users/user/Downloads/serializer_10to1.v
+  C:/Users/user/Downloads/tmds_encoder_dvi.v
   D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/vga_timing.v
   D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v
 }

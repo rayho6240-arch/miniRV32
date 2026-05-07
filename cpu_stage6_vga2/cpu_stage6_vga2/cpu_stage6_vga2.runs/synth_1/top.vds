@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Thu May  7 19:33:57 2026
-# Process ID         : 17624
+# Start of session at: Thu May  7 21:05:16 2026
+# Process ID         : 320
 # Current directory  : D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.runs/synth_1
 # Command line       : vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file           : D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.runs/synth_1/top.vds
@@ -19,10 +19,10 @@
 # Host memory        : 34046 MB
 # Swap memory        : 2147 MB
 # Total Virtual      : 36194 MB
-# Available Virtual  : 17589 MB
+# Available Virtual  : 16151 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 523.082 ; gain = 220.035
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 525.809 ; gain = 219.895
 Command: read_checkpoint -auto_incremental -incremental D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/utils_1/imports/synth_1/top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -35,383 +35,88 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 34068
+INFO: [Synth 8-7075] Helper process launched with PID 30932
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1317.441 ; gain = 541.457
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1316.430 ; gain = 540.863
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'alu_b', assumed default net type 'wire' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:113]
+WARNING: [Synth 8-6901] identifier 'vga_active' is used before its declaration [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:43]
+WARNING: [Synth 8-6901] identifier 'pixel_data' is used before its declaration [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:43]
 INFO: [Synth 8-6157] synthesizing module 'top' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.runs/synth_1/.Xil/Vivado-17624-LAPTOP-L8B3PG7A/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.runs/synth_1/.Xil/Vivado-17624-LAPTOP-L8B3PG7A/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.runs/synth_1/.Xil/Vivado-320-LAPTOP-L8B3PG7A/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.runs/synth_1/.Xil/Vivado-320-LAPTOP-L8B3PG7A/realtime/clk_wiz_0_stub.v:6]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+INFO: [Synth 8-6157] synthesizing module 'dvi_generator' [C:/Users/user/Downloads/dvi_generator.v:8]
+INFO: [Synth 8-6157] synthesizing module 'tmds_encoder_dvi' [C:/Users/user/Downloads/tmds_encoder_dvi.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'tmds_encoder_dvi' (0#1) [C:/Users/user/Downloads/tmds_encoder_dvi.v:8]
+INFO: [Synth 8-6157] synthesizing module 'async_reset' [C:/Users/user/Downloads/async_reset.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'async_reset' (0#1) [C:/Users/user/Downloads/async_reset.v:8]
+INFO: [Synth 8-6157] synthesizing module 'serializer_10to1' [C:/Users/user/Downloads/serializer_10to1.v:8]
+INFO: [Synth 8-6157] synthesizing module 'OSERDESE2' [D:/Applications/AMD_Vivado/2025.2/Vivado/scripts/rt/data/unisim_comp.v:117832]
+	Parameter DATA_RATE_OQ bound to: DDR - type: string 
+	Parameter DATA_RATE_TQ bound to: SDR - type: string 
+	Parameter DATA_WIDTH bound to: 10 - type: integer 
+	Parameter INIT_OQ bound to: 1'b1 
+	Parameter INIT_TQ bound to: 1'b1 
+	Parameter SERDES_MODE bound to: MASTER - type: string 
+	Parameter SRVAL_OQ bound to: 1'b0 
+	Parameter SRVAL_TQ bound to: 1'b0 
+	Parameter TBYTE_CTL bound to: FALSE - type: string 
+	Parameter TBYTE_SRC bound to: FALSE - type: string 
+	Parameter TRISTATE_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'OSERDESE2' (0#1) [D:/Applications/AMD_Vivado/2025.2/Vivado/scripts/rt/data/unisim_comp.v:117832]
+INFO: [Synth 8-6157] synthesizing module 'OSERDESE2__parameterized0' [D:/Applications/AMD_Vivado/2025.2/Vivado/scripts/rt/data/unisim_comp.v:117832]
+	Parameter DATA_RATE_OQ bound to: DDR - type: string 
+	Parameter DATA_RATE_TQ bound to: SDR - type: string 
+	Parameter DATA_WIDTH bound to: 10 - type: integer 
+	Parameter INIT_OQ bound to: 1'b1 
+	Parameter INIT_TQ bound to: 1'b1 
+	Parameter SERDES_MODE bound to: SLAVE - type: string 
+	Parameter SRVAL_OQ bound to: 1'b0 
+	Parameter SRVAL_TQ bound to: 1'b0 
+	Parameter TBYTE_CTL bound to: FALSE - type: string 
+	Parameter TBYTE_SRC bound to: FALSE - type: string 
+	Parameter TRISTATE_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'OSERDESE2__parameterized0' (0#1) [D:/Applications/AMD_Vivado/2025.2/Vivado/scripts/rt/data/unisim_comp.v:117832]
+INFO: [Synth 8-6155] done synthesizing module 'serializer_10to1' (0#1) [C:/Users/user/Downloads/serializer_10to1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'dvi_generator' (0#1) [C:/Users/user/Downloads/dvi_generator.v:8]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'clk_pix' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:46]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'clk_pix_5x' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:47]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'rst' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:48]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'de' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:49]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'data_r' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:50]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'data_g' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:51]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'data_b' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:52]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'ctrl_hsync' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:53]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'ctrl_vsync' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:54]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'tmds_clk_p' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:55]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'tmds_clk_n' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:56]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'tmds_data_p' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:57]
+ERROR: [Synth 8-11365] for the instance 'u_hdmi' of module 'dvi_generator' declared at 'C:/Users/user/Downloads/dvi_generator.v:8', named port connection 'tmds_data_n' does not exist [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:58]
+WARNING: [Synth 8-7071] port 'i_pix_clk' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_pix_clk_5x' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_rst' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_de' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_data_ch0' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_data_ch1' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_data_ch2' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_ctrl_ch0' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_ctrl_ch1' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'i_ctrl_ch2' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'o_tmds_ch0_serial' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'o_tmds_ch1_serial' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'o_tmds_ch2_serial' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7071] port 'o_tmds_chc_serial' of module 'dvi_generator' is unconnected for instance 'u_hdmi' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
+WARNING: [Synth 8-7023] instance 'u_hdmi' of module 'dvi_generator' has 14 connections declared, but only 0 given [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:45]
 INFO: [Synth 8-6157] synthesizing module 'vga_timing' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/vga_timing.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'vga_timing' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/vga_timing.v:1]
-INFO: [Synth 8-6157] synthesizing module 'PC' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/PC.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'PC' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/PC.v:1]
-INFO: [Synth 8-6157] synthesizing module 'IMEM' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/IMEM.v:1]
-CRITICAL WARNING: [Synth 8-4445] could not open $readmem data file 'inst.hex'; please make sure the file is added to project and has read permission, ignoring [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/IMEM.v:14]
-INFO: [Synth 8-6155] done synthesizing module 'IMEM' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/IMEM.v:1]
-INFO: [Synth 8-6157] synthesizing module 'decoder_rv32' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/decoder.v:1]
-INFO: [Synth 8-155] case statement is not full and has no default [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/decoder.v:63]
-INFO: [Synth 8-6155] done synthesizing module 'decoder_rv32' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/decoder.v:1]
-INFO: [Synth 8-6157] synthesizing module 'ImmGen' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/ImmGen.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'ImmGen' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/ImmGen.v:3]
-INFO: [Synth 8-6157] synthesizing module 'RegFile' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/RegFile.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'RegFile' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/RegFile.v:3]
-INFO: [Synth 8-6157] synthesizing module 'data_mem' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/data_mem.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'data_mem' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/data_mem.v:1]
-INFO: [Synth 8-6157] synthesizing module 'ALU_32' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/ALU_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'ALU_32' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/ALU_32.v:1]
-WARNING: [Synth 8-689] width (1) of port connection 'b' does not match port width (32) of module 'ALU_32' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:113]
-INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:1]
-WARNING: [Synth 8-3848] Net alu_b in module/entity top does not have driver. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:113]
-WARNING: [Synth 8-3848] Net pc_plus_4 in module/entity top does not have driver. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:38]
-WARNING: [Synth 8-7129] Port addr[31] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[30] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[29] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[28] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[27] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[26] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[25] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[24] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[23] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[22] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[21] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[20] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[19] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[18] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[17] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[16] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[15] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[14] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[13] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[12] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[11] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[10] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[9] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[8] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[1] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[0] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[31] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[29] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[28] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[27] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[26] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[25] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[1] in module IMEM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[0] in module IMEM is either unconnected or has no load
+ERROR: [Synth 8-6156] failed synthesizing module 'vga_timing' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/vga_timing.v:1]
+ERROR: [Synth 8-6156] failed synthesizing module 'top' [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.srcs/sources_1/new/top.v:1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1439.234 ; gain = 663.250
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1437.539 ; gain = 661.973
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1439.234 ; gain = 663.250
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1439.234 ; gain = 663.250
----------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1439.234 ; gain = 0.000
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'u_pll'
-Finished Parsing XDC File [d:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'u_pll'
-Parsing XDC File [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_clk_n'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:181]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_clk_p'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:182]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_data_n[0]'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:184]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_data_p[0]'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:185]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_data_n[1]'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:188]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_data_p[1]'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:189]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_data_n[2]'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:191]
-WARNING: [Vivado 12-584] No ports matched 'TMDS_data_p[2]'. [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc:192]
-Finished Parsing XDC File [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/pynq-z2_v1.0.xdc/PYNQ-Z2 v1.0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Completed Processing XDC Constraints
-
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1476.570 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1476.570 ; gain = 0.000
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 1476.570 ; gain = 700.586
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7z020clg400-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 1476.570 ; gain = 700.586
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1476.570 ; gain = 700.586
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1476.570 ; gain = 700.586
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input   32 Bit       Adders := 3     
-	   3 Input   32 Bit       Adders := 1     
-	   2 Input   10 Bit       Adders := 2     
-+---XORs : 
-	   2 Input     32 Bit         XORs := 1     
-+---Registers : 
-	               32 Bit    Registers := 1     
-	               10 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
-+---RAMs : 
-	              75K Bit	(76800 X 1 bit)          RAMs := 1     
-	             1024 Bit	(32 X 32 bit)          RAMs := 1     
-+---Muxes : 
-	 257 Input   32 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 9     
-	   8 Input    4 Bit        Muxes := 1     
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 220 (col length:60)
-BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
-WARNING: [Synth 8-3917] design top has port dbg_instr[31] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[30] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[29] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[28] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[27] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[26] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[25] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[24] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[23] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[22] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[21] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[20] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[19] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[18] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[17] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[16] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[15] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[14] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[13] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[12] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[11] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[10] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[9] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[8] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[7] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[6] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[5] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[4] driven by constant 1
-WARNING: [Synth 8-3917] design top has port dbg_instr[3] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[2] driven by constant 0
-WARNING: [Synth 8-3917] design top has port dbg_instr[1] driven by constant 1
-WARNING: [Synth 8-3917] design top has port dbg_instr[0] driven by constant 1
-WARNING: [Synth 8-7129] Port addr[31] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[30] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[29] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[28] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[27] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[26] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[25] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[24] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[23] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[22] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[21] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[20] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[19] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[18] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[17] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[16] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[15] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[14] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[13] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[12] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[11] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[10] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[9] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[8] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[1] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addr[0] in module data_mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[31] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[29] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[28] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[27] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[26] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port instr[25] in module decoder_rv32 is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (vram_reg_mux_sel_a_pos_1) is unused and will be removed from module top.
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1504.918 ; gain = 728.934
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-Block RAM: Preliminary Mapping Report (see note below)
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|top         | vram_reg   | 75 K x 1(NO_CHANGE)    | W |   | 75 K x 1(WRITE_FIRST)  |   | R | Port A and B     | 0      | 3      | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
-Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:03 ; elapsed = 00:01:09 . Memory (MB): peak = 1652.422 ; gain = 876.438
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:10 . Memory (MB): peak = 1682.934 ; gain = 906.949
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-Block RAM: Final Mapping Report
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|top         | vram_reg   | 75 K x 1(NO_CHANGE)    | W |   | 75 K x 1(WRITE_FIRST)  |   | R | Port A and B     | 0      | 3      | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance vram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance vram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:04 ; elapsed = 00:01:10 . Memory (MB): peak = 1682.934 ; gain = 906.949
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1913.863 ; gain = 1137.879
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1913.863 ; gain = 1137.879
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1913.863 ; gain = 1137.879
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1913.863 ; gain = 1137.879
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1914.844 ; gain = 1138.859
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1914.844 ; gain = 1138.859
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+------+--------------+----------+
-|      |BlackBox name |Instances |
-+------+--------------+----------+
-|1     |clk_wiz_0     |         1|
-+------+--------------+----------+
-
-Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |clk_wiz  |     1|
-|2     |CARRY4   |     6|
-|3     |LUT1     |     4|
-|4     |LUT2     |    11|
-|5     |LUT3     |     4|
-|6     |LUT4     |     7|
-|7     |LUT5     |     6|
-|8     |LUT6     |    12|
-|9     |RAMB36E1 |     3|
-|12    |FDCE     |    20|
-|13    |FDRE     |     2|
-|14    |IBUF     |     1|
-|15    |OBUF     |    90|
-+------+---------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1914.844 ; gain = 1138.859
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 65 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:56 ; elapsed = 00:01:16 . Memory (MB): peak = 1914.844 ; gain = 1101.523
-Synthesis Optimization Complete : Time (s): cpu = 00:01:15 ; elapsed = 00:01:22 . Memory (MB): peak = 1914.844 ; gain = 1138.859
-INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1924.047 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1927.750 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Synth Design complete | Checksum: df711c2a
+RTL Elaboration failed
 INFO: [Common 17-83] Releasing license: Synthesis
-45 Infos, 111 Warnings, 1 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:24 ; elapsed = 00:01:34 . Memory (MB): peak = 1927.750 ; gain = 1385.406
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1927.750 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'D:/Programing/VerilogProject/miniRV32/cpu_stage6_vga2/cpu_stage6_vga2/cpu_stage6_vga2.runs/synth_1/top.dcp' has been generated.
-INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu May  7 19:35:46 2026...
+26 Infos, 18 Warnings, 0 Critical Warnings and 16 Errors encountered.
+synth_design failed
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1437.539 ; gain = 893.000
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Thu May  7 21:05:45 2026...

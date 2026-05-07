@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 
 module RegFile(
-    input clk,
-    input [4:0] rs1,    // 32 個寄存器需要 5-bit 地址 (2^5 = 32)
-    input [4:0] rs2,
-    input [4:0] rd,
-    input [31:0] wd,    // 資料寬度升級為 32-bit
-    input RegWrite,
-    output [31:0] rd1,
-    output [31:0] rd2
+    input wire clk,
+    input wire [4:0] rs1,    // 32 個寄存器需要 5-bit 地址 (2^5 = 32)
+    input wire [4:0] rs2,
+    input wire [4:0] rd,
+    input wire [31:0] wd,    // 資料寬度升級為 32-bit
+    input wire RegWrite,
+    output wire [31:0] rd1,
+    output wire [31:0] rd2
 );
     // 定義 32 個 32-bit 的寄存器
     reg [31:0] rf [0:31];

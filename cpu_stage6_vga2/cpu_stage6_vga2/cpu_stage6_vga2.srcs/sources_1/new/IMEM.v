@@ -1,6 +1,6 @@
 module IMEM(
-    input  [31:0] addr,    
-    output [31:0] instr    
+    input  wire [31:0] addr,    
+    output wire [31:0] instr    
 );
 
     reg [31:0] rom [0:255];

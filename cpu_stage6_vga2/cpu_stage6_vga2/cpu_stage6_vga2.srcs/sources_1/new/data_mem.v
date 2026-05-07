@@ -1,10 +1,10 @@
 module data_mem(
-    input clk,
-    input mem_write,
-    input mem_read,
-    input [31:0] addr,
-    input [31:0] wd,
-    output [31:0] rd
+    input wire clk,
+    input wire mem_write,
+    input wire mem_read,
+    input wire [31:0] addr,
+    input wire [31:0] wd,
+    output wire [31:0] rd
 );
 
     reg [31:0] ram [0:63];

@@ -1,9 +1,9 @@
 module vga_timing(
-    input clk_25M,       // 25.175 MHz 或 25 MHz
-    input rst_n,
+    input wire clk_25M,       // 25.175 MHz 或 25 MHz
+    input wire rst_n,
     output reg [9:0] curr_x,
     output reg [9:0] curr_y,
-    output hsync, vsync, active_video
+    output wire hsync, vsync, active_video
 );
     // 640x480 標準時序
     parameter H_ACTIVE = 640, H_FP = 16, H_SYNC = 96, H_BP = 48, H_TOTAL = 800;

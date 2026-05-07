@@ -177,19 +177,15 @@ set_property -dict { PACKAGE_PIN D20   IOSTANDARD LVCMOS33 } [get_ports { btn }]
 
 #==============================
 ##HDMI Tx
-## HDMI Tx (PYNQ-Z2 專用)
-set_property -dict { PACKAGE_PIN L17   IOSTANDARD TMDS_33  } [get_ports { TMDS_clk_n }]; 
-set_property -dict { PACKAGE_PIN L16   IOSTANDARD TMDS_33  } [get_ports { TMDS_clk_p }]; 
-
-set_property -dict { PACKAGE_PIN K18   IOSTANDARD TMDS_33  } [get_ports { TMDS_data_n[0] }]; 
-set_property -dict { PACKAGE_PIN K17   IOSTANDARD TMDS_33  } [get_ports { TMDS_data_p[0] }]; 
-
-# 你說的 L20 其實對應的是 Data 1 的負端
-set_property -dict { PACKAGE_PIN L20   IOSTANDARD TMDS_33  } [get_ports { TMDS_data_n[1] }]; 
-set_property -dict { PACKAGE_PIN L19   IOSTANDARD TMDS_33  } [get_ports { TMDS_data_p[1] }]; 
-
-set_property -dict { PACKAGE_PIN H18   IOSTANDARD TMDS_33  } [get_ports { TMDS_data_n[2] }]; 
-set_property -dict { PACKAGE_PIN J18   IOSTANDARD TMDS_33  } [get_ports { TMDS_data_p[2] }];
+## HDMI 傳輸腳位定義 (PYNQ-Z2)
+set_property -dict { PACKAGE_PIN L16  IOSTANDARD TMDS_33  } [get_ports { TMDS_clk_p }];
+set_property -dict { PACKAGE_PIN L17  IOSTANDARD TMDS_33  } [get_ports { TMDS_clk_n }];
+set_property -dict { PACKAGE_PIN K17  IOSTANDARD TMDS_33  } [get_ports { TMDS_data_p[0] }];
+set_property -dict { PACKAGE_PIN K18  IOSTANDARD TMDS_33  } [get_ports { TMDS_data_n[0] }];
+set_property -dict { PACKAGE_PIN L19  IOSTANDARD TMDS_33  } [get_ports { TMDS_data_p[1] }];
+set_property -dict { PACKAGE_PIN L20  IOSTANDARD TMDS_33  } [get_ports { TMDS_data_n[1] }];
+set_property -dict { PACKAGE_PIN J18  IOSTANDARD TMDS_33  } [get_ports { TMDS_data_p[2] }];
+set_property -dict { PACKAGE_PIN J19  IOSTANDARD TMDS_33  } [get_ports { TMDS_data_n[2] }];
 #set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { hdmi_tx_cec }]; #IO_L19N_T3_VREF_35 Sch=hdmi_tx_cec
 ##set_property -dict { PACKAGE_PIN L17   IOSTANDARD TMDS_33  } [get_ports { TMDS_clk_n }]; #IO_L11N_T1_SRCC_35 Sch=hdmi_tx_clk_n
 ##set_property -dict { PACKAGE_PIN L16   IOSTANDARD TMDS_33  } [get_ports { TMDS_clk_p}]; #IO_L11P_T1_SRCC_35 Sch=hdmi_tx_clk_p

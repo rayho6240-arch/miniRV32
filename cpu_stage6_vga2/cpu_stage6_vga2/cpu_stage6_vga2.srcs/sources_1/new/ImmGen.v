@@ -1,7 +1,7 @@
 
 
 module ImmGen(
-    input [31:0] instr,
+    input wire [31:0] instr,
     output reg [31:0] imm
 );
 

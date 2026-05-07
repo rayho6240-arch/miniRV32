@@ -1,7 +1,7 @@
-`default_nettype none  // 回復嚴格模式，確保合成器不亂猜線路
+`default_nettype none  // 嚴格模式，確保合成器不亂猜線路
 
 module top(
-    input  wire        clk_create,    // PYNQ-Z2 原生 125MHz (或 50MHz) 震盪器輸入
+    input  wire        clk_create,    // 原生震盪器輸入 (例如 125MHz 或 50MHz)
     input  wire        rst_n,         // 主動低電平重置訊號
     input  wire [3:0]  btn,           // 實體按鈕 (btn[0] 可控小恐龍)
     
@@ -17,21 +17,20 @@ module top(
 );
 
     // ============================================================
-    // 1. 時鐘系統 (實例化 Clocking Wizard IP)
+    // 1. 時鐘系統
     // ============================================================
-    // 將原本的 input 改為內部 wire，由這裡的 IP 負責發電
     wire clk_pix; 
     wire clk_pix_5x; 
     wire clk_cpu; 
     wire locked;
 
     clk_wiz_2 u_clk_gen (
-        .clk_in1(clk_create), // 吃外部實體時脈
-        .resetn(rst_n),       // IP 通常是高電平重置，這裡做反相
-        .clk_out1(clk_cpu),   // 輸出給 CPU
-        .clk_out2(clk_pix),   // 輸出給 VGA 掃描
-        .clk_out3(clk_pix_5x),// 輸出給 HDMI TMDS
-        .locked(locked)       // PLL 鎖定訊號
+        .clk_in1(clk_create), 
+        .resetn(rst_n),       
+        .clk_out1(clk_cpu),   
+        .clk_out2(clk_pix),   
+        .clk_out3(clk_pix_5x),
+        .locked(locked)       
     );
 
     // ============================================================
@@ -53,7 +52,6 @@ module top(
     wire        RegWrite, ALUSrc, MemWrite, MemRead, MemtoReg, Branch, zero;
     wire        Jump, Jalr;
 
-    // PC 邏輯
     assign pc_plus_4 = pc + 32'd4;
     wire [31:0] jump_target = pc + imm;
     wire [31:0] jalr_target = (rd1 + imm) & 32'hFFFFFFFE;
@@ -107,7 +105,6 @@ module top(
     wire is_vram     = (alu_out >= 32'h0000_9000 && alu_out <= 32'h0000_9FFF);
     wire is_dmem     = (alu_out <  32'h0000_8000);
 
-    // CPU 寫入資料 MUX (決定寫入 DMEM 還是 VRAM)
     data_mem u_dmem(
         .clk(clk_cpu),
         .mem_write(MemWrite && is_dmem),
@@ -117,13 +114,15 @@ module top(
         .rd(raw_mem_out)
     );
 
-    // CPU 讀取資料 MUX
-    wire [31:0] vram_cpu_out; // VRAM 給 CPU 的讀取值
+    wire [31:0] vram_cpu_out; 
+    
+    // 【修復】原本 vram_cpu_out 沒有驅動源會導致合成警告或出錯，這裡給定預設值 0
+    assign vram_cpu_out = 32'h0000_0000; 
+
     assign dmem_out = (is_mmio_btn) ? {28'b0, btn_sync_2} :
                       (is_vram)     ? vram_cpu_out : 
                                       raw_mem_out;
 
-    // 回寫資料到暫存器
     assign wd = (Jump || Jalr) ? pc_plus_4 : 
                 (MemtoReg)     ? dmem_out : 
                                  alu_out;
@@ -133,10 +132,11 @@ module top(
     // ============================================================
     wire [11:0] pixel_addr_to_vram;
     wire [23:0] vram_pixel_rgb;
-    wire [10:0] sx, sy;
+    
+    // 【修改】將位元寬度改為與 display_timings 一致的 16-bit signed
+    wire signed [15:0] sx, sy; 
     wire hsync, vsync, de;
 
-    // VRAM 實例化
     vram u_vram (
         .clk_cpu(clk_cpu),
         .we(MemWrite && is_vram),
@@ -145,34 +145,46 @@ module top(
         .clk_pixel(clk_pix),
         .addr_pixel(pixel_addr_to_vram),
         .data_out(vram_pixel_rgb)
-        // ⚠️ 備註：如果你有實作 CPU 讀取 VRAM 的功能，記得把 vram_cpu_out 接出來
-        // .data_out_cpu(vram_cpu_out) 
     );
 
-    // 螢幕計時產生器 (640x480)
     display_timings #(
         .H_RES(640),
         .V_RES(480)
     ) u_timings (
         .i_pix_clk(clk_pix),
-        .rst(!locked),
-        .sx(sx),
-        .sy(sy),
-        .hsync(hsync),
-        .vsync(vsync),
-        .de(de)
+        .i_rst(!locked),       // 【修改】對應 Project F 命名
+        .o_sx(sx),             // 【修改】對應 Project F 命名
+        .o_sy(sy),             // 【修改】對應 Project F 命名
+        .o_hs(hsync),          // 【修改】對應 Project F 命名
+        .o_vs(vsync),          // 【修改】對應 Project F 命名
+        .o_de(de)              // 【修改】對應 Project F 命名
     );
 
     // 映射邏輯：將螢幕座標對應到 VRAM 位址 (左上角 64x64)
-    wire is_drawing_area = (sx < 64 && sy < 64);
+    // 【修改】因為 sx, sy 變成了有號數，加上 >= 0 確保座標不為負數時才繪圖
+    wire is_drawing_area = (sx >= 0 && sx < 64 && sy >= 0 && sy < 64);
     assign pixel_addr_to_vram = {sy[5:0], sx[5:0]};
 
-    // 顏色混算：畫圖區顯示 VRAM，其餘背景深藍色
-    wire [7:0] out_r = (de && is_drawing_area) ? vram_pixel_rgb[23:16] : 8'h00;
-    wire [7:0] out_g = (de && is_drawing_area) ? vram_pixel_rgb[15:8]  : 8'h00;
-    wire [7:0] out_b = (de && is_drawing_area) ? vram_pixel_rgb[7:0]   : (de ? 8'h33 : 8'h00);
+    // ------------------------------------------------------------
+    // 【新增】測試模式切換開關 (1: 彩條測試模式, 0: RISC-V 畫面模式)
+    // ------------------------------------------------------------
+    localparam TEST_MODE = 1;
 
-    // HDMI 訊號產生
+    // 模式 0：正常的 VRAM 畫面渲染
+    wire [7:0] normal_r = (de && is_drawing_area) ? vram_pixel_rgb[23:16] : 8'h00;
+    wire [7:0] normal_g = (de && is_drawing_area) ? vram_pixel_rgb[15:8]  : 8'h00;
+    wire [7:0] normal_b = (de && is_drawing_area) ? vram_pixel_rgb[7:0]   : (de ? 8'h33 : 8'h00);
+
+    // 模式 1：利用螢幕座標 sx 產生交錯的彩色垂直條紋 (不依賴 RISC-V)
+    wire [7:0] test_r = de ? {8{sx[7]}} : 8'h00; // 根據 X 座標的第 7 位元切換紅色
+    wire [7:0] test_g = de ? {8{sx[6]}} : 8'h00; // 根據 X 座標的第 6 位元切換綠色
+    wire [7:0] test_b = de ? {8{sx[5]}} : 8'h00; // 根據 X 座標的第 5 位元切換藍色
+
+    // 最終輸出多工器
+    wire [7:0] out_r = TEST_MODE ? test_r : normal_r;
+    wire [7:0] out_g = TEST_MODE ? test_g : normal_g;
+    wire [7:0] out_b = TEST_MODE ? test_b : normal_b;
+
     dvi_generator u_hdmi_gen (
         .clk_pix(clk_pix),
         .clk_pix_5x(clk_pix_5x),

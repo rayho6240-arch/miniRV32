@@ -68,25 +68,25 @@ module tmds_encoder_dvi(
             begin
                 if (enc_qm[8] == 0)
                 begin
-                    $display("\t%d %b %d, %d, A1", i_data, enc_qm, ones, bias);
+                    // $display("\t%d %b %d, %d, A1", i_data, enc_qm, ones, bias);
                     o_tmds[9:0] <= {2'b10, ~enc_qm[7:0]};
                     bias <= bias - balance;
                 end
                 else begin
-                    $display("\t%d %b %d, %d, A0", i_data, enc_qm, ones, bias);
+                    // $display("\t%d %b %d, %d, A0", i_data, enc_qm, ones, bias);
                     o_tmds[9:0] <= {2'b01, enc_qm[7:0]};
                     bias <= bias + balance;
                 end
             end
             else if ((bias > 0 && balance > 0) || (bias < 0 && balance < 0))
             begin
-                $display("\t%d %b %d, %d, B1", i_data, enc_qm, ones, bias);
+                // $display("\t%d %b %d, %d, B1", i_data, enc_qm, ones, bias);
                 o_tmds[9:0] <= {1'b1, enc_qm[8], ~enc_qm[7:0]};
                 bias <= bias + {3'b0, enc_qm[8], 1'b0} - balance;
             end
             else
             begin
-                $display("\t%d %b %d, %d, B0", i_data, enc_qm, ones, bias);
+                // $display("\t%d %b %d, %d, B0", i_data, enc_qm, ones, bias);
                 o_tmds[9:0] <= {1'b0, enc_qm[8], enc_qm[7:0]};
                 bias <= bias - {3'b0, ~enc_qm[8], 1'b0} + balance;
             end

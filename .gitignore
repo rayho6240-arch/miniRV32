@@ -1,0 +1,31 @@
+# Vivado Project files to ignore
+.Xil/
+**/.Xil/
+*.cache/
+**/*.cache/
+*.hw/
+**/*.hw/
+*.ip_user_files/
+**/*.ip_user_files/
+*.runs/
+**/*.runs/
+*.sim/
+**/*.sim/
+*.gen/
+**/*.gen/
+
+# Log and journal files
+*.log
+*.jou
+**/*.log
+**/*.jou
+
+# Backup files
+*.backup.log
+*.backup.jou
+**/*.backup.log
+**/*.backup.jou
+
+# OS/IDE files
+.DS_Store
+Thumbs.db

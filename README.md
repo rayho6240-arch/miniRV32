@@ -13,7 +13,6 @@ This project explores computer architecture fundamentals and Verilog HDL impleme
 - [RV32I CPU Implementation](#-rv32i-cpu-implementation)
   - [Supported Instruction Set](#supported-instruction-set)
   - [Datapath Stages & Waveform Verification](#datapath-stages--waveform-verification)
-- [HW/SW Co-Design: Music Box](#-hwsw-co-design-music-box)
 - [Peripheral Extensions: VRAM & HDMI](#-peripheral-extensions-vram--hdmi)
 - [Key Takeaways & Reflections](#-key-takeaways--reflections)
 - [Development Environment](#-development-environment)

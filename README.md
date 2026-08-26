@@ -1,7 +1,7 @@
 
  <img width="741" height="405" alt="image" src="https://github.com/user-attachments/assets/868184ce-2c02-4a97-b2f9-b2adae80f8cb" />
 
- # 🚀 RISC-V RV32I Single-Cycle CPU & FPGA HW/SW Co-Design
+ # 🚀 RISC-V RV32I Single-Cycle CPU 
 
 This project explores computer architecture fundamentals and Verilog HDL implementation. It covers building a **RISC-V (RV32I) Single-Cycle CPU** from scratch (starting from an ALU), alongside **Hardware/Software Co-Design** on the PYNQ-Z2 FPGA platform (featuring a Music Box audio controller and VRAM/HDMI display interface experiments).
 

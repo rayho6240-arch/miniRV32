@@ -1,126 +1,140 @@
 
  <img width="741" height="405" alt="image" src="https://github.com/user-attachments/assets/868184ce-2c02-4a97-b2f9-b2adae80f8cb" />
 
- ===================
-4/22 01:23
-===================
-feat: upgrade to 16-bit instruction architecture and implement Immediate (ADDI) support
+ # 🚀 RISC-V RV32I Single-Cycle CPU & FPGA HW/SW Co-Design
 
-[Architecture Upgrade]
-- Expanded instruction width from 11-bit to 16-bit to accommodate immediate values.
-- New Instruction Format: [15:12] Opcode, [11:9] Rd, [8:6] Rs1, [5:0] Imm/Rs2.
-
-[Module Modifications]
-- decoder.v: Refactored to decode 4-bit Opcode, extract 6-bit Immediate, and output ALUSrc control signal.
-- ALU_8.v: Upgraded ALU control logic to directly accept 4-bit Opcode, eliminating the need for top-level translation.
-- top.v: Implemented sign-extension for 6-bit Immediate and added ALUSrc MUX for ALU's B-input.
-- IMEM.v: Expanded memory width to 16-bit and loaded new test program for ADDI validation.
-- top_tb.v: Adjusted simulation timing to properly capture the initial state at PC=0.
-
-[Note]
-- regFile and data_mem remain unchanged as the core 8-bit datapath is fully preserved.
-
-==================================================
-沒問題！這是我為你整理好的 Markdown 源碼，你可以直接複製並貼上到你的開發筆記（例如 `README.md` 或 `DevLog.md`）中。
+This project explores computer architecture fundamentals and Verilog HDL implementation. It covers building a **RISC-V (RV32I) Single-Cycle CPU** from scratch (starting from an ALU), alongside **Hardware/Software Co-Design** on the PYNQ-Z2 FPGA platform (featuring a Music Box audio controller and VRAM/HDMI display interface experiments).
 
 ---
 
-```markdown
-# 🚀 RISC-V SoC 開發日記：HDMI 與 VRAM 整合篇
-
-## 📅 5/8 進度：Synthesis 成功 (Milestone)
-- **達成目標**：成功解決所有埠位名稱不匹配、`wire/reg` 宣告衝突及時鐘模組連線問題。
-- **當前狀態**：RTL 電路邏輯合法，硬體架構已通過 Vivado 綜合驗證。
+## 📌 Table of Contents
+- [Project Highlights](#-project-highlights)
+- [System Architecture](#-system-architecture)
+- [RV32I CPU Implementation](#-rv32i-cpu-implementation)
+  - [Supported Instruction Set](#supported-instruction-set)
+  - [Datapath Stages & Waveform Verification](#datapath-stages--waveform-verification)
+- [HW/SW Co-Design: Music Box](#-hwsw-co-design-music-box)
+- [Peripheral Extensions: VRAM & HDMI](#-peripheral-extensions-vram--hdmi)
+- [Key Takeaways & Reflections](#-key-takeaways--reflections)
+- [Development Environment](#-development-environment)
 
 ---
 
-## 🛠 接下來的開發驗證步驟
+## 💡 Project Highlights
 
-為了確保硬體穩定並最終實現遊戲動畫，我將採取 **「由外而內、隔離變數」** 的測試策略。
+* **Complete RV32I Datapath**: Designed Program Counter (PC), Instruction/Data Memory, Register File, Immediate Generator, and ALU.
+* **Full Instruction Set Support**: Supports standard RV32I types (R-type, I-type, S-type, B-type, U-type, J-type).
+* **FPGA HW/SW Co-Design**: Integrated Xilinx Vitis with PYNQ-Z2 for CPU/RAM logic control and hardware DAC audio output.
+* **Hardware Display Exploration**: Integrated Clock Wizard, VGA Timing, and TMDS/DVI encoders for VRAM-driven HDMI output.
 
-### 第一階段：硬體通路測試 (HDMI 實體電路確認)
-**目的**：確認 PLL、HDMI 產生器及物理腳位 (XDC) 配置是否正確。
+---
 
-- [ ] **修改代碼**：在 `top.v` 中註解 VRAM 讀取，改用彩條測試。
-```verilog
-// 1. 註解原本的 VRAM 讀取與顏色賦值
-// always @(posedge clk_25M) pixel_data <= vram[vram_read_addr];
-// assign rgb_out_final = (vga_active && pixel_data) ? 24'hFFFFFF : 24'h000000;
+## 🏗 System Architecture
 
-// 2. 開啟彩條測試模式 (直接根據座標產生顏色)
-assign rgb_out_final = vga_active ? {vga_x[7:0], vga_y[7:0], 8'hFF} : 24'h000000;
+The top-level module (`top`) integrates the CPU Datapath, memory arrays, and peripheral controllers (HDMI Display & Audio DAC).
+
+```text
+top
+├── clk_wiz_0 u_pll                       // Clock Generator (PLL)
+├── CPU datapath (Integrated directly in top)
+│   ├── PC u_pc                           // Program Counter
+│   ├── IMEM u_imem                       // Instruction Memory (256x32 ROM)
+│   ├── decoder_rv32 u_dec                // Instruction Decoder (Opcode/Funct3/Funct7)
+│   ├── ImmGen u_immgen                   // Immediate Generator (I/S/B/U/J)
+│   ├── RegFile u_rf                      // 32x32-bit Register File
+│   ├── ALU_32 u_alu                      // 32-bit Arithmetic Logic Unit
+│   ├── data_mem u_dmem                   // Data Memory (64x32 RAM)
+│   ├── branch / jump PC select           // Combinational logic: Branch/Jump PC selection
+│   └── write-back mux                    // Combinational logic: Write-back MUX
+├── inline VRAM array                     // Inline Video RAM Array
+├── vga_timing u_vga                      // VGA Timing Controller
+├── dvi_generator u_hdmi                  // HDMI / DVI Generator
+│   ├── tmds_encoder_dvi x 3              // TMDS Encoders (RGB Channels)
+│   ├── async_reset                       // Asynchronous Reset
+│   └── serializer_10to1 x 4              // 10:1 Serializers
+└── OBUFDS x 4                            // Differential Output Buffers
 
 ```
 
-* [ ] **預期結果**：螢幕顯示由黑轉為平滑的彩色漸層畫面。
-* [ ] **失敗對策**：若全黑，檢查 `serializer_10to1.v` 是否正確載入及 `.xdc` 腳位名稱是否對齊。
+---
+
+##  RV32I CPU Implementation
+
+### 1. Core Datapath Architecture
+
+The CPU operates on a single-cycle architecture covering five standard logic phases:
+
+1. **Instruction Fetch (IF)**: Fetches instructions from IMEM based on PC while computing `PC + 4`.
+2. **Instruction Decode (ID)**: Decodes Opcode, Funct3, and Funct7, extracts immediates via ImmGen, and reads source registers from RegFile.
+3. **Execute (EX)**: Performs operations via ALU and computes Branch/Jump target addresses.
+4. **Memory Access (MEM)**: Performs `LW` (Read) or `SW` (Write) operations on Data Memory.
+5. **Write-Back (WB)**: Writes ALU results or loaded memory data back to RegFile.
 
 ---
 
-### 第二階段：CPU 與 VRAM 寫入測試 (匯流排確認)
+### 2. Supported Instruction Set
 
-**目的**：確認指令記憶體 (IMEM) 讀取正常，且 CPU 執行 `sw` 指令能正確寫入 VRAM 區塊。
+The core supports most standard RV32I instructions:
 
-* [ ] **還原代碼**：將 `rgb_out_final` 改回 VRAM 讀取模式。
+| Instruction Type | Supported Instructions | Description |
+| --- | --- | --- |
+| **R-type** | `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`, `XOR`, `SRL`, `SRA`, `OR`, `AND` | Register-register arithmetic & logic |
+| **I-type Arithmetic** | `ADDI`, `SLTI`, `XORI`, `ORI`, `ANDI`, `SLLI`, `SRLI`, `SRAI` | Immediate arithmetic & logic |
+| **I-type Load** | `LW` | Memory load |
+| **I-type Jump** | `JALR` | Indirect jump |
+| **S-type** | `SW` | Memory store |
+| **B-type** | `BEQ`, `BNE` | Conditional branch |
+| **U-type** | `LUI`, `AUIPC` | Upper immediate / PC-relative |
+| **J-type** | `JAL` | Unconditional jump |
 
-```verilog
-// 還原為 VRAM 讀取模式
-assign rgb_out_final = (vga_active && pixel_data) ? 24'hFFFFFF : 24'h000000;
+---
+
+### 3. Waveform Verification & Execution Flow
+
+Verification was conducted via Testbench simulation to track state transitions across stages:
+
+* **① Instruction Fetch (IF)**: Upon reset (`PC = 0`), fetches instruction `0x00500093` (`ADDI x1, x0, 5`).
+* **② Register Write-back**: Operands written to registers (e.g., `x1 = 5`, `x2 = 7`).
+* **③ ALU Execution**: `ADD x3, x1, x2` -> ALU computes `5 + 7 = 12` (`0x0C`) and writes back to `x3`.
+* **④ Memory Access**: Triggers `MemWrite` for stores (`SW`) or `MemRead` for loads.
+* **⑤ Load Write-back**: `LW` instruction reads data from memory and writes back to `x4`.
+* **⑥ Control Flow**: `JAL` instruction updates control signals and calculates `next_pc` for target jump.
+
+---
+
+
+
+---
+
+##  Peripheral Extensions: VRAM & HDMI
+
+An experiment to connect the CPU with MMIO/VRAM for display control:
+
+* **Architecture**: Combined Clock Wizard (generating Pixel and Serializer clocks), VGA timing logic, TMDS encoders, `serializer_10to1`, and `OBUFDS` differential buffers.
+* **Challenges & Lessons**: HDMI requires precise pixel clocking, TMDS encoding, and strict XDC constraints. While an initial prototype was built using AI assistance and open-source decoders, achieving stable output highlighted the necessity of mastering hardware timing constraints rather than relying solely on assembled modules.
+
+---
+
+##  Key Takeaways & Reflections
+
+> "Complex FPGA system integration must be built on small, understandable, verifiable, and controllable sub-systems. Relying solely on quick AI-generated setups makes long-term maintenance and debugging impossible."
+
+1. **Foundational Hardware Understanding**: Building a complete CPU from an ALU provided deep insight into how hardware coordinates fetch, decode, execute, memory, and write-back cycles under clock signals.
+2. **Value of HW/SW Partitioning**: The Music Box lab demonstrated the synergy between software flexibility (high-level decisions/memory management) and hardware determinism (real-time I/O & precise timing).
+3. **Rigorous FPGA Debugging**: Overcoming timing issues in HDMI and verifying the audio pipeline reinforced the vital importance of understanding clock domains, memory access patterns, and timing constraints.
+
+---
+
+##  Development Environment
+
+* **Hardware Design Language**: Verilog HDL
+* **FPGA Board**: PYNQ-Z2 (Zynq-7000 SoC)
+* **EDA & Software Tools**: Xilinx Vivado / Xilinx Vitis
+* **Simulation**: Vivado Simulator / ModelSim
+
+---
+
+*Created with by [JIA-RUEI HO/rayho6240-arch]*
 
 ```
-
-* [ ] **編寫 `inst.hex**`：在左上角座標 (0,0) 畫一個點。
-
-```assembly
-# RISC-V Assembly:
-li t0, 0x50000000  # VRAM 基底位址 (根據 top.v 映射)
-li t1, 1           # 白色像素值
-sw t1, 0(t0)       # 寫入 VRAM[0]
-self: j self       # 死迴圈，停止 CPU 運作
-
-```
-
-* [ ] **預期結果**：螢幕左上角出現一個微小白點（實際為 2x2 物理像素的放大點）。
-
----
-
-### 第三階段：動態動畫測試 (性能與邏輯確認)
-
-**目的**：利用 CPU 算力進行座標偏移，驗證動態刷新能力。
-
-* [ ] **編寫 `inst.hex**`：繪製一條不斷增長的水平線。
-
-```assembly
-# RISC-V Assembly:
-li t0, 0x50000000  # VRAM 基底
-li t1, 1           # 顏色 (白色)
-li t2, 0           # Offset (當前 X 座標)
-
-draw_loop:
-    add t3, t0, t2
-    sw t1, 0(t3)   # 在當前位址畫點
-    addi t2, t2, 1 # X 座標加 1
-    
-    # 延遲迴圈 (避免 CPU 跑太快導致白線瞬間畫完)
-    li t4, 200000
-delay:
-    addi t4, t4, -1
-    bnez t4, delay
-    
-    j draw_loop    # 跳回循環繼續畫下一個點
-
-```
-
-* [ ] **預期結果**：螢幕上看到一條白線緩慢從左向右延伸。
-
----
-
-## 📌 注意事項與 Bug 備忘錄
-
-1. **位址映射**：VRAM 映射位址為 `0x500xxxxx`，有效範圍為 `0` 到 `76799`。
-2. **時鐘域**：CPU 時鐘已同步至 `clk_25M`，存取 VRAM 無跨時鐘域問題。
-3. **IMEM 加載**：確保 `inst.hex` 檔案格式為 32-bit hex，並放在 Vivado 專案路徑下。
-
----
-
 
